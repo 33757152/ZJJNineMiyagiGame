@@ -72,8 +72,7 @@ typedef NS_ENUM(NSUInteger, ZJJPhotoType) {
         UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             photo.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
             photo.myImageBlock = ^(UIImage *image) {
-                UIImage *newImage = [self imageWithImageSimple:image scaledToSize:CGSizeMake(300, 300)];
-                _zjjImageView.image = newImage;
+                [self clipsOldImage:image];
             };
             [self.navigationController pushViewController:photo animated:NO];
         }];
@@ -81,16 +80,13 @@ typedef NS_ENUM(NSUInteger, ZJJPhotoType) {
         UIAlertAction *caremaAction = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             photo.sourceType = UIImagePickerControllerSourceTypeCamera;
             photo.myImageBlock = ^(UIImage *image) {
-                UIImage *newImage = [self imageWithImageSimple:image scaledToSize:CGSizeMake(300, 300)];
-                _zjjImageView.image = newImage;
+                [self clipsOldImage:image];
             };
             [self.navigationController pushViewController:photo animated:NO];
         }];
         
         UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"默认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UIImage *newImage = [self imageWithImageSimple:[UIImage imageNamed:IMAGE_NAME] scaledToSize:CGSizeMake(300, 300)];
-            _zjjImageView.image = newImage;
-
+            [self clipsOldImage:[UIImage imageNamed:IMAGE_NAME]];
         }];
         
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
@@ -115,32 +111,19 @@ typedef NS_ENUM(NSUInteger, ZJJPhotoType) {
     }
 }
 
-- (UIImage *)imageWithImageSimple:( UIImage *)image scaledToSize:( CGSize )newSize
-
-{
-    
-    // Create a graphics image context
-    
-    UIGraphicsBeginImageContext (newSize);
-    
-    // Tell the old image to draw in this new context, with the desired
-    
-    // new size
-    
-    [image drawInRect : CGRectMake ( 0 , 0 ,newSize. width ,newSize. height )];
-    
-    // Get the new image from the context
-    
-    UIImage * newImage = UIGraphicsGetImageFromCurrentImageContext ();
-    
-    // End the context
-    
-    UIGraphicsEndImageContext ();
-    
-    // Return the new image.
+#pragma mark - 把不规则的图片处理一下
+- (UIImage *)imageWithImageSimple:(UIImage *)image scaledToSize:(CGSize)newSize {
+    UIGraphicsBeginImageContext(newSize);
+    [image drawInRect : CGRectMake (0 ,0 ,newSize.width,newSize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
     
     return newImage;
-    
+}
+
+- (void)clipsOldImage:(UIImage *)oldImage {
+    UIImage *newImage = [self imageWithImageSimple:oldImage scaledToSize:CGSizeMake(300, 300)];
+    _zjjImageView.image = newImage;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
