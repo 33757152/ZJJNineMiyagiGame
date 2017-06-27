@@ -13,6 +13,11 @@
 		890348211F00997D00CAEDB2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8903481F1F00997D00CAEDB2 /* Main.storyboard */; };
 		890348231F00997D00CAEDB2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 890348221F00997D00CAEDB2 /* Assets.xcassets */; };
 		890348261F00997D00CAEDB2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 890348241F00997D00CAEDB2 /* LaunchScreen.storyboard */; };
+		890348341F00DC7100CAEDB2 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 890348331F00DC7100CAEDB2 /* 1.jpg */; };
+		890348381F00DCB300CAEDB2 /* CustomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 890348371F00DCB300CAEDB2 /* CustomView.m */; };
+		8903483C1F00DD7700CAEDB2 /* ZJJGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8903483B1F00DD7700CAEDB2 /* ZJJGameViewController.m */; };
+		890348621F015E5B00CAEDB2 /* FPJWarnLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 890348611F015E5B00CAEDB2 /* FPJWarnLabelView.m */; };
+		890348681F020BD200CAEDB2 /* ZJJGetSystemPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 890348671F020BD200CAEDB2 /* ZJJGetSystemPhoto.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,16 @@
 		890348221F00997D00CAEDB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		890348251F00997D00CAEDB2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		890348271F00997D00CAEDB2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		890348331F00DC7100CAEDB2 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		890348361F00DCB300CAEDB2 /* CustomView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomView.h; sourceTree = "<group>"; };
+		890348371F00DCB300CAEDB2 /* CustomView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomView.m; sourceTree = "<group>"; };
+		8903483A1F00DD7700CAEDB2 /* ZJJGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJJGameViewController.h; sourceTree = "<group>"; };
+		8903483B1F00DD7700CAEDB2 /* ZJJGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJJGameViewController.m; sourceTree = "<group>"; };
+		890348601F015E5B00CAEDB2 /* FPJWarnLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPJWarnLabelView.h; sourceTree = "<group>"; };
+		890348611F015E5B00CAEDB2 /* FPJWarnLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPJWarnLabelView.m; sourceTree = "<group>"; };
+		890348661F020BD200CAEDB2 /* ZJJGetSystemPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZJJGetSystemPhoto.h; sourceTree = "<group>"; };
+		890348671F020BD200CAEDB2 /* ZJJGetSystemPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZJJGetSystemPhoto.m; sourceTree = "<group>"; };
+		890348691F020D2F00CAEDB2 /* ZJJHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZJJHeader.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +73,8 @@
 		890348151F00997D00CAEDB2 /* CaptureImageDemo */ = {
 			isa = PBXGroup;
 			children = (
+				890348391F00DCEE00CAEDB2 /* ZJJVC */,
+				890348351F00DCB300CAEDB2 /* ZJJView */,
 				890348191F00997D00CAEDB2 /* AppDelegate.h */,
 				8903481A1F00997D00CAEDB2 /* AppDelegate.m */,
 				8903481C1F00997D00CAEDB2 /* ViewController.h */,
@@ -66,6 +83,8 @@
 				890348221F00997D00CAEDB2 /* Assets.xcassets */,
 				890348241F00997D00CAEDB2 /* LaunchScreen.storyboard */,
 				890348271F00997D00CAEDB2 /* Info.plist */,
+				890348691F020D2F00CAEDB2 /* ZJJHeader.h */,
+				890348331F00DC7100CAEDB2 /* 1.jpg */,
 				890348161F00997D00CAEDB2 /* Supporting Files */,
 			);
 			path = CaptureImageDemo;
@@ -77,6 +96,28 @@
 				890348171F00997D00CAEDB2 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		890348351F00DCB300CAEDB2 /* ZJJView */ = {
+			isa = PBXGroup;
+			children = (
+				890348601F015E5B00CAEDB2 /* FPJWarnLabelView.h */,
+				890348611F015E5B00CAEDB2 /* FPJWarnLabelView.m */,
+				890348361F00DCB300CAEDB2 /* CustomView.h */,
+				890348371F00DCB300CAEDB2 /* CustomView.m */,
+				890348661F020BD200CAEDB2 /* ZJJGetSystemPhoto.h */,
+				890348671F020BD200CAEDB2 /* ZJJGetSystemPhoto.m */,
+			);
+			path = ZJJView;
+			sourceTree = "<group>";
+		};
+		890348391F00DCEE00CAEDB2 /* ZJJVC */ = {
+			isa = PBXGroup;
+			children = (
+				8903483A1F00DD7700CAEDB2 /* ZJJGameViewController.h */,
+				8903483B1F00DD7700CAEDB2 /* ZJJGameViewController.m */,
+			);
+			path = ZJJVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -111,7 +152,7 @@
 					890348121F00997D00CAEDB2 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = B77E2S42YJ;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -139,6 +180,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				890348261F00997D00CAEDB2 /* LaunchScreen.storyboard in Resources */,
+				890348341F00DC7100CAEDB2 /* 1.jpg in Resources */,
 				890348231F00997D00CAEDB2 /* Assets.xcassets in Resources */,
 				890348211F00997D00CAEDB2 /* Main.storyboard in Resources */,
 			);
@@ -152,6 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8903481E1F00997D00CAEDB2 /* ViewController.m in Sources */,
+				890348681F020BD200CAEDB2 /* ZJJGetSystemPhoto.m in Sources */,
+				8903483C1F00DD7700CAEDB2 /* ZJJGameViewController.m in Sources */,
+				890348621F015E5B00CAEDB2 /* FPJWarnLabelView.m in Sources */,
+				890348381F00DCB300CAEDB2 /* CustomView.m in Sources */,
 				8903481B1F00997D00CAEDB2 /* AppDelegate.m in Sources */,
 				890348181F00997D00CAEDB2 /* main.m in Sources */,
 			);
@@ -277,9 +323,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B77E2S42YJ;
 				INFOPLIST_FILE = CaptureImageDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.fengpu.CaptureImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8454d787-fc28-41ec-a024-f778a689335f";
+				PROVISIONING_PROFILE_SPECIFIER = FengPuAllMobileTestProfile;
 			};
 			name = Debug;
 		};
@@ -289,9 +338,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = B77E2S42YJ;
 				INFOPLIST_FILE = CaptureImageDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.fengpu.CaptureImageDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8454d787-fc28-41ec-a024-f778a689335f";
+				PROVISIONING_PROFILE_SPECIFIER = FengPuAllMobileTestProfile;
 			};
 			name = Release;
 		};
@@ -314,6 +366,7 @@
 				8903482C1F00997D00CAEDB2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
