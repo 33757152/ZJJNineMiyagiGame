@@ -5,8 +5,9 @@
 //  Created by 张锦江 on 2017/6/26.
 //  Copyright © 2017年 ZJJ. All rights reserved.
 //
-#define ITEM_W   326/3
-#define ITEM_H   300/3
+#define ITEM_W   _totalFrame.size.width/3
+#define ITEM_H   _totalFrame.size.height/3
+
 #define SUCCESS_WORD  @"恭喜少侠您已过关,请返回再次挑战!"
 
 #import "ZJJGameViewController.h"
@@ -17,6 +18,7 @@
     UIImage *_selectedImage; // 上次图片
     NSInteger _selectedTag;  // 上次tag
     BOOL _success;           // 是否成功
+    UIImageView *_originImageView;
 }
 
 @end
@@ -46,13 +48,35 @@
     for (NSInteger i = 0; i<9; i++) {
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.tag = i + 1000;
+        //imageView.image = _dataArray[i];
         imageView.userInteractionEnabled = YES;
-        imageView.frame = CGRectMake((kScreenWidth-326-2)/2 + (ITEM_W+1) * (i%3),70+(ITEM_H+1)*(i/3), ITEM_W, ITEM_H);
+        imageView.frame = CGRectMake((kScreenWidth-3*ITEM_W-2)/2 + (ITEM_W+1) * (i%3),70+(ITEM_H+1)*(i/3), ITEM_W, ITEM_H);
         [self.view addSubview:imageView];
         
         UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapClick:)];
         [imageView addGestureRecognizer:gesture];
     }
+}
+
+- (void)setUpView {
+    UIBarButtonItem *right = [[UIBarButtonItem alloc] initWithTitle:@"原图/消失" style:UIBarButtonItemStylePlain target:self action:@selector(lookOldImage)];
+    self.navigationItem.rightBarButtonItem = right;
+
+    _originImageView = [[UIImageView alloc] init];
+    _originImageView.frame = CGRectMake((kScreenWidth-2*ITEM_W)/2, kScreenHeight-2*ITEM_H-20, 2*ITEM_W, 2*ITEM_H);
+    _originImageView.image = _originImage;
+    _originImageView.hidden = YES;
+    [self.view addSubview:_originImageView];
+}
+#pragma mark - 方法
+- (void)lookOldImage {
+    static int i = 0;
+    if (i%2 == 0) {
+        _originImageView.hidden = NO;
+    }else {
+        _originImageView.hidden = YES;
+    }
+    i++;
 }
 
 #pragma mark - 位置打乱
@@ -87,14 +111,6 @@
     NSInteger tagInteger = [array[index] integerValue];
     UIImageView *imageView = [self.view viewWithTag:index+1000];
     imageView.image = _dataArray[tagInteger];
-}
-
-- (void)setUpView {
-    
-    UIImageView *imageView = [[UIImageView alloc] init];
-    imageView.frame = CGRectMake((kScreenWidth-200)/2, 400, 200, 200);
-    imageView.image = _originImage;
-    [self.view addSubview:imageView];
 }
 #pragma mark - 计算两次点击的图片横纵坐标的差值
 - (NSArray *)calculateDeletePartWithLastImageView:(UIImageView *)lastImageView andNowImageView:(UIImageView *)nowImageView {

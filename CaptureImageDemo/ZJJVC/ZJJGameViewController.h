@@ -10,10 +10,10 @@
 
 @interface ZJJGameViewController : UIViewController
 
-@property (nonatomic,strong) UIImage *originImage;
+@property (nonatomic,strong) UIImage *originImage; // 原始图片
 @property (nonatomic,strong) NSArray *dataArray;
 @property (nonatomic,assign) float imageW;
 @property (nonatomic,assign) float imageH;
-
+@property (nonatomic,assign) CGRect totalFrame;  // 原始图片的frame
 
 @end

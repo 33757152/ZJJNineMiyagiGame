@@ -24,6 +24,8 @@
 
 - (void)comeOutWithTitle:(NSString *)title {
    
+    [_warnLabel removeFromSuperview];
+    
     [self warnLabelCreat];
     
     [self warnLabelApperaAndDisappearWithTitle:title];
